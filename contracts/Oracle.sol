@@ -7,6 +7,7 @@ contract Oracle {
 	}
 
 	address public admin;
+	//reporters are address that are allowed to report data
 	mapping(address => bool) public reporters;
 	mapping(bytes32 => Data) public data;
 
@@ -24,7 +25,7 @@ contract Oracle {
 		data[key] = Data(block.timestamp, payload);
 	}
 
-	function getData(bytes32 key) external view returns(bool results, uint date, uint payload) {
+	function getData(bytes32 key) external view returns(bool result, uint date, uint payload) {
 		if(data[key].date == 0) {
 			return (false, 0, 0);
 		}

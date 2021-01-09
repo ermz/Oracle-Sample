@@ -17,8 +17,7 @@ module.exports = async done => {
 			currentPrice,
 			{from: reporter}
 		);
-		console.log('new price for BTC/USD ${currentPrice} updated on-chain');
-		console.log('hello')
+		console.log(`new price for BTC/USD ${currentPrice} updated on-chain`);
 		await new Promise(resolve => setTimeout(resolve, POLL_INTERVAL));
 	}
 
